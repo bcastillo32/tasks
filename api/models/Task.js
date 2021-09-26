@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 const TaskSchema = new Schema({
   text: {
@@ -16,6 +16,6 @@ const TaskSchema = new Schema({
   }
 });
 
-const task = mongoose.model('Task', TaskSchema);
+const Task = mongoose.model('Task', TaskSchema);
 
 module.exports = Task;
