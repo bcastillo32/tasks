@@ -39,7 +39,7 @@ app.delete('/task/delete/:id', async (req, res) => {
   res.json(result);
 });
 
-app.put('/task/complete/:id', async (req, res) => {
+app.get('/task/complete/:id', async (req, res) => {
   const task = await Task.findById(req.params.id);
 
   task.complete = !task.complete;
