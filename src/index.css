@@ -58,18 +58,14 @@ h4 {
   height: 20px;
   margin-right: 16px;
   border-radius: 50%;
-  background-color: var(--dark-alt);
-  background-image: linear-gradient(to bottom, transparent, transparent);
+  background-color: radial-gradient(#c4c4c4 1%, #bfbfbf 10%, #6b6b6b 100%);
+  background-image: radial-gradient(#c4c4c4 1%, #bfbfbf 10%, #6b6b6b 100%);
   transition: 0.4s;
 }
 
 .task.is-complete .checkbox {
   background-color: var(--primary);
-  background-image: linear-gradient(
-    to bottom,
-    var(--primary),
-    var(--secondary)
-  );
+  background-image: radial-gradient(#96fffe 1%, #68faff 10%, #007e92 100%);
 }
 
 .task .text {
@@ -82,16 +78,16 @@ h4 {
 
 .task .delete-task {
   position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	right: 16px;
-	color: var(--light);
-	width: 24px;
-	height: 24px;
-	border-radius: 50%;
-	background-color: #802a2a;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-weight: 700;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 16px;
+  color: var(--light);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #802a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
 }

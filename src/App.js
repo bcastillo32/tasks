@@ -17,6 +17,30 @@ function App() {
       .catch((err) => console.error('Error: ', err));
   };
 
+  const completeTask = async (id) => {
+    const data = await fetch(API_BASE + '/task/complete/' + id).then((res) =>
+      res.json()
+    );
+
+    setTasks((tasks) =>
+      tasks.map((task) => {
+        if (task._id === data._id) {
+          task.complete = data.complete;
+        }
+
+        return task;
+      })
+    );
+  };
+
+  const deleteTask = async (id) => {
+    const data = await fetch(API_BASE + '/task/delete/' + id, {
+      method: 'DELETE'
+    }).then((res) => res.json());
+
+    setTasks(tasks => tasks.filter(task => task._id !== data._id))
+  };
+
   return (
     <div className='App'>
       <h1>Hi Brandon 👋🏼</h1>
@@ -27,10 +51,11 @@ function App() {
           <div
             className={'task' + (task.complete ? ' is-complete' : '')}
             key={task._id}
+            onClick={() => completeTask(task._id)}
           >
             <div className='checkbox'></div>
             <div className='text'>{task.text}</div>
-            <div className='delete-task'>x</div>
+            <div className='delete-task' onClick={() => deleteTask(task._id)}>x</div>
           </div>
         ))}
       </div>
@@ -40,4 +65,4 @@ function App() {
 
 export default App;
 
-//testing 
+//testing
