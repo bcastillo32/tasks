@@ -33,12 +33,29 @@ function App() {
     );
   };
 
+  const addTask = async () => {
+    const data = await fetch(API_BASE + '/task/new', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        text: newTask
+      })
+    }).then((res) => res.json());
+
+    setTasks([...tasks, data]);
+
+    setPopupActive(false);
+    setNewTask('');
+  };
+
   const deleteTask = async (id) => {
     const data = await fetch(API_BASE + '/task/delete/' + id, {
       method: 'DELETE'
     }).then((res) => res.json());
 
-    setTasks(tasks => tasks.filter(task => task._id !== data._id))
+    setTasks((tasks) => tasks.filter((task) => task._id !== data._id));
   };
 
   return (
@@ -55,14 +72,39 @@ function App() {
           >
             <div className='checkbox'></div>
             <div className='text'>{task.text}</div>
-            <div className='delete-task' onClick={() => deleteTask(task._id)}>x</div>
+            <div className='delete-task' onClick={() => deleteTask(task._id)}>
+              x
+            </div>
           </div>
         ))}
       </div>
+      <div className='addPopup' onClick={() => setPopupActive(true)}>
+        ✏️
+      </div>
+
+      {popupActive ? (
+        <div className='popup'>
+          <div className='closePopup' onClick={() => setPopupActive(false)}>
+            X
+          </div>
+          <div className='content'>
+            <h3>Add Task</h3>
+            <input
+              type='text'
+              className='add-task-input'
+              onChange={(e) => setNewTask(e.target.value)}
+              value={newTask}
+            />
+            <div className='button' onClick={addTask}>
+              +
+            </div>
+          </div>
+        </div>
+      ) : (
+        ''
+      )}
     </div>
   );
 }
 
 export default App;
-
-//testing
