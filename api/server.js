@@ -23,6 +23,13 @@ app.get('/tasks', async (req, res) => {
   res.json(tasks);
 });
 
+app.delete('/tasks', async (req, res) => {
+  const result = await Task.deleteMany(req.params.id);
+
+  res.json(result);
+});
+
+
 app.post('/task/new', (req, res) => {
   const task = new Task({
     text: req.body.text
