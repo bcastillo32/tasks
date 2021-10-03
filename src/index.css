@@ -110,6 +110,23 @@ h4 {
   cursor: pointer;
 }
 
+.deleteAll {
+  height: 50px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+  border-style:solid;
+  font-size: 15px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #802a2a;
+  cursor:pointer;
+  
+}
+
 .popup {
   position: fixed;
   top: 50%;
