@@ -58,8 +58,8 @@ function App() {
     setTasks((tasks) => tasks.filter((task) => task._id !== data._id));
   };
 
-  const deleteAll = async (id) => {
-    const data = await fetch(API_BASE + '/tasks' + id, {
+  const deleteAll = async () => {
+    const data = await fetch(API_BASE + '/tasks' , {
       method: 'DELETE'
     }).then((res) => res.json());
 
@@ -88,7 +88,7 @@ function App() {
       <div className='addPopup' onClick={() => setPopupActive(true)}>
         ✏️
       </div>
-      <div className='deleteAll' onClick={() => deleteAll}>
+      <div className='deleteAll' onClick={() => deleteAll()}>
         Delete all
       </div>
       {popupActive ? (

@@ -118,13 +118,12 @@ h4 {
   justify-content: center;
 
   border-radius: 999px;
-  border-style:solid;
+  border-style: solid;
   font-size: 15px;
   font-weight: 900;
   text-transform: uppercase;
   color: #802a2a;
-  cursor:pointer;
-  
+  cursor: pointer;
 }
 
 .popup {
@@ -143,12 +142,12 @@ h4 {
 
 .closePopup {
   position: absolute;
-	top: 16px;
-	right: 16px;
-	width: 20px;
-	height: 20px;
-	font-size: 20px;
-	cursor: pointer;
+  top: 16px;
+  right: 16px;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .popup h3 {
