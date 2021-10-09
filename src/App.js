@@ -59,10 +59,11 @@ function App() {
   };
 
   const deleteAll = async () => {
-    const data = await fetch(API_BASE + '/tasks' , {
+    const data = await fetch(API_BASE + '/tasks', {
       method: 'DELETE'
     }).then((res) => res.json());
 
+    setTasks([]);
   };
 
   return (
